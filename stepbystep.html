@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Shahaf Gev Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>My Deliveries Power BI Dashboard<br />
+						</h1>
+						<p>Presented step by step - from background to final conclusions<br />
+						</p>
+						<ul class="actions">
+							<img src="images/agadir.webp" width="800" height="300"/>
+						</ul>
+					</div>
+				<nav id ="nav">
+					<ul class="links">
+						<li class="active"><a href="http://127.0.0.1:5500/index.html" >Back</a></li>
+						<li class="active"><a href="#tables" >Tables</a></li>
+						<li class="active"><a href="#function" >Function</a></li>
+						<li class="active"><a href="#views" >VIEWS</a></li>
+						<li class="active"><a href="#dashboard" >Dashboard</a></li>
+						<li class="active"><a href="#conclusions" >Conclusions</a></li>
+					</ul>
+				</nav>
+
+
+
+				<!-- Main -->
+				<div id="main">
+
+						<article class="step by step">
+								<p><h3>Background:</h3>
+									The Agadir Beer Sheva restaurant employs two types of couriers:<br>
+									1. Couriers who receive a fixed hourly wage and make the deliveries on the restaurant's mopeds.<br>
+									2. Freelancers - couriers who are paid according to the amount of deliveries they make, 
+									18 NIS for delivery within the city of Beer Sheva (including Omar) 
+									and 50 NIS for delivery outside the city (Lahavim, Mitar, Carmit, Haters). 
+									These couriers make the deliveries on their own vehicle and the fuel expenses on their basis.<br> 
+									Starting in August, there is a fuel refund of 50 NIS for each shift.<br><br>
+									In addition, the restaurant also works with Wolt and 10Bis.<br>
+									The day shift is 7 hours long (12:00-19:00) and the night shift is 6 hours long (19:00-01:00).</p>
+							<p id="tables"><h3>The Tables:</h3>
+								I started by creating the tables for gas price, shift type and shifts.<br>
+								SHIFTS - the full shift's data<br>
+								GASPRICE - the updating gas price for 1 liter<br>
+								SHIFTSTYPE - Day/Night with the suitable hours<br>
+							</p>
+							<img src="images/tables.png" width="700" height="500"/><br>
+								I entered the data from the excel that i used to track my profits with to the tables<br>
+							<img src="images/excel.png" width="700" height="200"/><br><br>
+							<p id="function"><h3>Function:</h3></p>
+								For the gas prices table I calculated the price for 1 km by checking what is the size of my car's fuel tank,
+								then mulitply it by the cost for 1 liter and divide by the number of km shown on my fuel display.
+								I wrote a function who recives a date and returns the relevent gas expense for 1 km.
+								The FROM table in the function is created by using the window function LEAD,
+								that way I can only insert the date were the gas price updated instead of start and end date for each specific cost.<br><br>
+							<img src="images/function.png" />
+							<p id="views"><h3>VIEWS:</h3></p>
+								V_SHIFTS - calculating the gas cost using the function, show data for every shift. <br>
+								V_SHIFTS2 - same as V_SHIFTS + the weekday and hours. <br>
+								V_SHIFTS3 - data grouped by weekday and type. <br>
+								V_SHIFTS4 - comparing each shift to the profit from the same weekday and type and to the average overall shifts.<br><br>
+							<img src="images/views.png" width="900" height="700"/><br><br>
+							<p id="dashboard"><h3>The Dashboard:</h3></p>
+							All parts of the dashboard are updated with new data entry and all of them (except the shift rating table) can be filtered using a date range.<br>
+							1. Using the Power BI cards i set some indicators that helps see my overall progress and profit. 
+							They are important in a monthly view and in a single shift view as well.<br>	
+							<img src="images/parameters.png" width="700" height="100"/><br><br>
+							2. The following table shows the different shifts ranked by profit and helps me decide which shifts to work 
+							according to the different constraints I have that week.<br><br>
+							<img src="images/shiftrank.png" width="400" height="300"/><br><br>
+							3. The following table shows a comparison between the shifts and the corresponding shift by weekday & type and 
+							also shows a comparison to the overall average shift. 
+							In this way I get a perspective on my last shifts and my last week since I work an average of about 3 shifts a week.<br><br>
+							<img src="images/lastshifts.png" width="500" height="150"/><br><br>
+							4. The following two graphs show the amount of within the city deliveries (deliveries outside the city are few and random) 
+							and the tip I received in each shift divided into the day shift (left) and the night shift (right). 
+							In addition, the average of each category is presented. 
+							With the help of the graphs it is easier to identify trends in these categories. <br><br>
+							<img src="images/graphs.png" width="1000" height="300"/><br><br>
+							<p id="conclusions"><h3>Conclusions:</h3></p>							
+								1. <b>The Friday night shift is the most profitable by far.</b><br>
+								A conclusion that can lead to a change in my motivation to work these shifts.<br>
+								2. <b>On average, the amount of deliveries within the city is quite the same between the day shift 
+								and the night shift (15.3 during the day versus 14.9 at night).</b><br>
+								Despite the widespread stigma that the day shift has more deliveries because it is longer.<br>
+								3. <b>On average, the tips in the night shift are higher than the day shift 
+								(66 at night compared to 42 during the day). </b><br>
+								This conclusion is true for all months and for each month separately. 
+								This conclusion is attributed to the fact that during the day a considerable part of the 
+								deliveries are made through Sibus and usually no tip is received for them.
+						
+						
+							</article>
+
+
+
+						<section class="split contact">
+							<section class="alt">
+								<h3>Address</h3>
+								<p>Be'er Sheva, Israel<br />
+								</p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<p><a href="#">+972527343466</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="#">shahafgev10@gmail.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<li><a href="https://www.linkedin.com/in/shahaf-gev/" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/shahafgev" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
